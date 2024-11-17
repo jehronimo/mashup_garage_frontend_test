@@ -16,6 +16,10 @@
     flex: 0 0 96px;
     display: flex;
     justify-content: center;
+
+    > .avatar {
+      border-radius: 50%;
+    }
   }
 
   > .info {
