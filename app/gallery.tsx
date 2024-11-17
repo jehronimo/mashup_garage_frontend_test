@@ -12,11 +12,14 @@ import {
 import Modal from "./modal";
 
 import { User } from "./types/user";
+import { Photo } from "./types/photo";
+import Image from "next/image";
 
 export type GalleryProps = {
   users: User[];
+  photos: Photo[];
 };
-const Gallery = ({ users }: GalleryProps) => {
+const Gallery = ({ users, photos }: GalleryProps) => {
   const [usersList, setUsersList] = useState(users);
   const [selectedUser, setSelectedUser] = useState<User | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -46,11 +49,12 @@ const Gallery = ({ users }: GalleryProps) => {
             onClick={() => handleModalOpen(user.id)}
           >
             <div className="body">
-              <Avatar
-                size={96}
-                name={user.name}
-                variant="marble"
-                colors={["#92A1C6", "#146A7C", "#F0AB3D", "#C271B4", "#C20D90"]}
+              <img
+                src={photos[index].download_url}
+                alt={user.name}
+                width={74}
+                height={74}
+                className="avatar"
               />
             </div>
             <div className="info">
