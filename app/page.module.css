@@ -5,6 +5,14 @@
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+
+  @media screen and (max-width: 480px) {
+    padding: 2rem;
+  }
+
+  @media screen and (min-width: 481px) and (max-width: 768px) {
+    padding: 1rem;
+  }
 }
 
 .description {
